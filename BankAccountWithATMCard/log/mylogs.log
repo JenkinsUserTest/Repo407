@@ -1,0 +1,11 @@
+[INFO ] 27-02-2025 05:56:40.640 pm [main]  com.dao.AccountDAO - Account with id 1001 added successfully
+[INFO ] 27-02-2025 06:00:51.636 pm [main]  com.dao.AccountDAO - Account with id 1001 added successfully
+[INFO ] 27-02-2025 06:00:51.758 pm [main]  com.dao.AccountDAO - Account details with card type abc retrieved successfully 
+[INFO ] 28-02-2025 11:09:29.671 am [main]  com.dao.AccountDAO - Account with id 1001 added successfully
+[INFO ] 28-02-2025 11:09:29.850 am [main]  com.dao.AccountDAO - Account details with card type abc retrieved successfully 
+[INFO ] 28-02-2025 11:34:26.655 am [main]  com.dao.AccountDAO - Account with id 1001 added successfully
+[INFO ] 28-02-2025 11:34:26.710 am [main]  com.dao.ATMCardDAO - ATM card successfully issued to account number 1001
+[INFO ] 28-02-2025 11:34:26.841 am [main]  com.dao.AccountDAO - Account details with card type abc retrieved successfully 
+[INFO ] 28-02-2025 01:49:12.240 pm [main]  com.dao.AccountDAO - Account with id 1001 added successfully
+[INFO ] 28-02-2025 01:49:12.280 pm [main]  com.dao.ATMCardDAO - ATM card successfully issued to account number 1001
+[INFO ] 28-02-2025 01:49:12.364 pm [main]  com.dao.AccountDAO - Account details with card type abc retrieved successfully 
