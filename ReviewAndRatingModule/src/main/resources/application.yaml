@@ -1,0 +1,85 @@
+# Main application configuration file for review-service.
+# Configures server, data source, JPA, Eureka, and SpringDoc settings.
+server:
+    port: 8089
+    connection-timeout: 1
+spring:
+    application:
+        name: review-service
+    datasource:
+        driver: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/ReviewDB?createDatabaseIfNotExist=true
+        username: root
+        password: root
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL8Dialect
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    boot:
+        admin:
+            client:
+                url: http://localhost:8761/admin
+                enabled: true
+                instance:
+                    service-url: http://localhost:8089
+eureka:
+    instance:
+        hostname: ${vcap.application.uris[0]:localhost}
+        metadataMap:
+            instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+        leaseRenewalIntervalInSeconds: 5
+    client:
+        region: default
+
+springdoc:
+    api-docs:
+        enabled: true
+    swagger-ui:
+        enabled: true
+
+management:
+    info:
+        env:
+            enabled: true
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+
+    endpoint:
+        shutdown:
+            enabled: true
+
+info:
+    app:
+        name: Book Catalog Rest API
+        version: 1.0.0
+        description: Book Catalog Rest API
+
+feign:
+    client:
+        config:
+            httpBinClient:
+                read-timeout: 2000
+                connect-timeout: 1000
+    circuitbreaker:
+        enabled: true
+
+resilience4j:
+    circuitbreaker:
+        configs:
+            default:
+                registerHealthIndicator: true
+        instances:
+            HttpBinClient_getBinWithDelayInSeconds_int:
+                minimumNumberOfCalls: 10
+                failureRateThreshold: 50
+    timelimiter:
+        configs:
+            default:
+                timeoutDuration: 20s
+
+
+
+
